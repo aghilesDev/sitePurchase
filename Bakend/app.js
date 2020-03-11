@@ -1,9 +1,10 @@
 const  express = require('express');
-const bodyParser=require('body-parser');
+const session = require('express-session');
+const bodyParser =require('body-parser');
 const mongoose = require('mongoose');
-const Thing= require('./model/things');
+const Thing = require('./model/things');
 const stuffRoutes = require('./routes/stuff');
-const userRoutes = require('./routes/user')
+const userRoutes = require('./routes/user');
 
 mongoose.connect('mongodb+srv://app:prg2014@cluster-k1ttd.mongodb.net/test?retryWrites=true&w=majority',
 { useNewUrlParser: true,
@@ -12,8 +13,12 @@ mongoose.connect('mongodb+srv://app:prg2014@cluster-k1ttd.mongodb.net/test?retry
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 const app = express();
+const sess={ secret: 'agergfdvdfergrergf'};
+
+app.use(session(sess));
 
 app.use((req, res ,next)=>{
+  
   res.setHeader('Access-Control-Allow-Origin','*');
   res.setHeader('Access-Control-Allow-Headers','Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Methods','GET, POST, PUT, DELETE, PATCH, OPTIONS');

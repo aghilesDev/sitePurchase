@@ -30,13 +30,10 @@ exports.login=(req, res, next)=>{
           {
             return res.status(401).json({message:'Authentification échouée'});
           }
+          
+          req.session.userId=user._id
           res.status(200).json({
-            userId: user._id,
-            token:jwt.sign(
-              {userId:user._id},
-              'RANDOM_SECRET_KEY',
-              {expiresIn:'24h'}
-            )
+            email: user.email
           });
         })
         .catch(error=> res.status(500).json({error}));
