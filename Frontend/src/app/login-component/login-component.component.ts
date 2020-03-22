@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../authentication.service';
+import { AuthenticationService } from '../../shared/authentication.service';
 
 
 @Component({
@@ -19,8 +19,7 @@ export class LoginComponentComponent implements OnInit {
   }
 
   login() {
-    console.log('hello');
-    this.authentificationService.login(this.email, this.password)
+    this.authentificationService.login(this.email, this.password);
   }
 
 }
