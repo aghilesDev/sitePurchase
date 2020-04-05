@@ -15,4 +15,9 @@ export class ThingAPI {
   getThings(): Observable<Thing[]> {
     return this.http.get<Thing[]>(this.API);
   }
+
+  createThing(newThing): Observable<Thing> {
+    return this.http.post<Thing>(this.API, newThing);
+  }
+
 }

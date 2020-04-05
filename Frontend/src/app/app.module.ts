@@ -5,14 +5,16 @@ import { AuthenticationService } from '../shared/authentication.service'
 import { AppComponent } from './app.component';
 import { LoginComponentComponent } from './login-component/login-component.component';
 import { FormsModule } from '@angular/forms';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './things/home/home.component';
 import { RouterModule } from '@angular/router';
+import { AddThingComponent } from './things/add-thing/add-thing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponentComponent,
     HomeComponent,
+    AddThingComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,10 @@ import { RouterModule } from '@angular/router';
       {
         path: 'home',
         component: HomeComponent
+      },
+      {
+        path: 'newThing',
+        component: AddThingComponent
       },
       { path: '', redirectTo: 'login', pathMatch: 'full' },
     ])

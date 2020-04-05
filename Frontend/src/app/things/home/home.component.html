@@ -1,3 +1,4 @@
+<button (click)="onAddNewItem()">Add Item</button>
 <div *ngFor="let item of (things$ |async)">
   title: {{item.title}}
   description: {{item.description}}

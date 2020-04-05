@@ -20,5 +20,15 @@ export class ThingFacade {
   getThings$() {
     return this.thingState.getThings();
   }
+  addThing(newThing) {
+    this.thingApi.createThing(newThing).subscribe(
+      (addedThing: Thing) => {
+        this.thingState.addThing(newThing);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
 
 }
