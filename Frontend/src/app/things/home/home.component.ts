@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ThingFacade } from '../shared/thing-facade.service';
 import { BehaviorSubject } from 'rxjs';
-import {Router} from '@angular/router'
+import { Router } from '@angular/router'
 import { Thing } from '../shared/thing';
 
 @Component({
@@ -12,7 +12,7 @@ import { Thing } from '../shared/thing';
 export class HomeComponent implements OnInit {
 
   things$: BehaviorSubject<Thing[]>;
-  constructor(private thingFacade: ThingFacade,private router:Router) {
+  constructor(private thingFacade: ThingFacade, private router: Router) {
 
     this.things$ = this.thingFacade.getThings$();
   }
@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   onAddNewItem() {
-    this.router.navigate(['/newThing']);
+    this.router.navigate(['newThing']);
   }
 
 }

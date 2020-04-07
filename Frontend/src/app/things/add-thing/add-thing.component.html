@@ -1,1 +1,11 @@
-<p>add-thing works!</p>
+<form [formGroup]='this.newThingFormGroup'>
+  value : {{ this.newThingFormGroup.value | json }}
+  <hr>
+  <input placeholder="title" formControlName="title">
+  <input placeholder="description" formControlName="description">
+  <input type='number' placeholder="price" formControlName="price">
+  <input placeholder="imageUrl" formControlName="imageUrl">
+  <button (click)="this.submit()">Submit</button>
+  <input type="file" placeholder="Upload file" accept=".pdf,.doc,.docx">
+
+</form>
