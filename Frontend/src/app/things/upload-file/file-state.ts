@@ -1,13 +1,13 @@
 export class FileState {
-    key?: string;
-    name?: string;
-    link: string;
+    id: string;
+    name: string;
     progress: number;
     private uploading: boolean;
     private successful: boolean;
-    constructor(name?, key?, link, progress = 0, uploading = true, successful = false) {
+    link?: string;
+    constructor(name: string, id: string, progress = 0, uploading = true, successful = false, link?) {
         this.name = name;
-        this.key = key;
+        this.id = id;
         this.link = link;
         this.progress = progress;
         this.uploading = uploading;

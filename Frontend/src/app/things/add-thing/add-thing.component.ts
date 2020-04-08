@@ -16,6 +16,9 @@ export class AddThingComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const date1 = new Date().getTime();
+    const date2 = new Date().getTime();
+    console.log(date1);
     this.newThingFormGroup = this.formBuilder.group({
       title: '',
       description: '',
